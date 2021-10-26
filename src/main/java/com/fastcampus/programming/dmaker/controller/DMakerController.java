@@ -15,7 +15,6 @@ public class DMakerController {
     @GetMapping("/developers")
     public List<String> getAllDevelopers(){
         log.info("GET /developers HTTP/1.1");
-
         return Arrays.asList("Elsa", "Olaf", "Anna");
     }
 
