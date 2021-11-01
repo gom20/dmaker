@@ -1,5 +1,6 @@
 package com.fastcampus.programming.dmaker.entity;
 
+import com.fastcampus.programming.dmaker.dto.CreateDeveloper;
 import com.fastcampus.programming.dmaker.type.DeveloperLevel;
 import com.fastcampus.programming.dmaker.type.DeveloperSkillType;
 import com.fastcampus.programming.dmaker.code.StatusCode;
@@ -43,5 +44,7 @@ public class Developer {
 
     @LastModifiedDate
     private LocalDateTime updateAt;
+
+
 
 }

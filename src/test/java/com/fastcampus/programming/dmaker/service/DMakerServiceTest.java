@@ -21,6 +21,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
@@ -47,7 +48,7 @@ class DMakerServiceTest {
             .age(19)
             .build();
 
-    private final CreateDeveloper.Request defaultCreateRequest = CreateDeveloper.Request.builder()
+    private  CreateDeveloper.Request defaultCreateRequest = CreateDeveloper.Request.builder()
             .developerLevel(DeveloperLevel.SENIOR)
             .developerSkillType(DeveloperSkillType.FRONT_END)
             .experienceYear(23)
@@ -64,7 +65,7 @@ class DMakerServiceTest {
 
         DeveloperDetailDto developerDetailDto = dMakerService.getDeveloperDetail("memberId");
 
-        assertEquals(DeveloperLevel.JUNIOR, developerDetailDto.getDeveloperLevel());
+        assertEquals(DeveloperLevel.SENIOR, developerDetailDto.getDeveloperLevel());
     }
 
     @Test
@@ -74,6 +75,8 @@ class DMakerServiceTest {
 
         given(developerRepository.findByMemberId(anyString()))
                 .willReturn(Optional.empty());
+        given(developerRepository.save(any()))
+                .willReturn(defaultDeveloper);
 
         ArgumentCaptor<Developer> captor = ArgumentCaptor.forClass(Developer.class);
 
