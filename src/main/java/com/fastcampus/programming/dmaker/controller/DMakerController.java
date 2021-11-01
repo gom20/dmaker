@@ -4,7 +4,6 @@ import com.fastcampus.programming.dmaker.dto.CreateDeveloper;
 import com.fastcampus.programming.dmaker.dto.DeveloperDetailDto;
 import com.fastcampus.programming.dmaker.dto.DeveloperDto;
 import com.fastcampus.programming.dmaker.dto.EditDeveloper;
-import com.fastcampus.programming.dmaker.repository.DeveloperRepository;
 import com.fastcampus.programming.dmaker.service.DMakerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +19,6 @@ import java.util.List;
 public class DMakerController {
 
     private final DMakerService dMakerService;
-    private final DeveloperRepository developerRepository;
 
     @GetMapping("/developers")
     public List<DeveloperDto> getAllEmployedDevelopers(){
